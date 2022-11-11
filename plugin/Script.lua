@@ -1,8 +1,8 @@
 local toolbar = plugin:CreateToolbar("Retro's RPG Engine") -- create a toolbar
 
-local InstallBtn = toolbar:CreateButton("Install files","Install all the required files.","") -- First Parameter: ToolTip, Second parameter: ToolTip. Third parameter: Icon id.
+local InstallBtn = toolbar:CreateButton("Install files","Install all the required files.","") -- Create the engine install button.
 
-InstallBtn.Click:Connect(function()
+InstallBtn.Click:Connect(function() -- Connect the install button to a function
 	local RPGAssets = script.Parent.RPGAssets:Clone()
 	RPGAssets.Parent = game.ServerStorage
 	-- Local Scripts
@@ -19,12 +19,12 @@ InstallBtn.Click:Connect(function()
 	local health = script.Parent.ServerScripts.Health:Clone()
 	health.Parent = game.ServerScriptService
 	health.Enabled = true
-end) -- Connecting the function
+end)
 
-local DoorBtn = toolbar:CreateButton("Make door","Turn a selected part into a working door.","") -- First Parameter: ToolTip, Second parameter: ToolTip. Third parameter: Icon id.
+local DoorBtn = toolbar:CreateButton("Make door","Turn a selected part into a working door.","") -- Create a button to create a door.
 
-DoorBtn.Click:Connect(function()
-	Model = game.ServerStorage.RPGAssets.Door:Clone() --Model you want to destroy
+DoorBtn.Click:Connect(function() -- Connect the door button to a function
+	Model = game.ServerStorage.RPGAssets.Door:Clone() --The doors contents
 	Model.Parent = game.Selection:Get()[#game.Selection:Get()]
 
 	for _, Child in pairs(Model:GetChildren()) do
@@ -33,8 +33,10 @@ DoorBtn.Click:Connect(function()
 
 	Model:Destroy() --Destroy the model afterwards
 	
+	-- The following lines of code show a selection box that dissapears.	
+	
 	local selectbox = script.Parent.SelectionBox:Clone()
-	selectbox.Parent = game.Selection:Get()[#game.Selection:Get()]
+	selectbox.Parent = game.Selection:Get()[#game.Selection:Get()] -- Gets the user's selection
 	selectbox.Adornee = selectbox.Parent
 	wait(3)
 	selectbox.Transparency = 0.1
@@ -58,10 +60,10 @@ DoorBtn.Click:Connect(function()
 	selectbox:Destroy()
 end) -- Connecting the function
 
-local FightBtn = toolbar:CreateButton("Make fight","Turn a selected body part into a configurable fight.","") -- First Parameter: ToolTip, Second parameter: ToolTip. Third parameter: Icon id.
+local FightBtn = toolbar:CreateButton("Make fight","Turn a selected body part into a configurable fight.","") -- This button will install a fight to a humanoid (choose a body part)
 
-FightBtn.Click:Connect(function()
-	Model = script.Parent.RPGAssets.Fight:Clone() --Model you want to destroy
+FightBtn.Click:Connect(function() -- Connects the button to a function
+	Model = script.Parent.RPGAssets.Fight:Clone() -- The contents of the fight
 	Model.Parent = game.Selection:Get()[#game.Selection:Get()]
 
 	for _, Child in pairs(Model:GetChildren()) do
@@ -70,8 +72,10 @@ FightBtn.Click:Connect(function()
 
 	Model:Destroy() --Destroy the model afterwards
 
+	-- The following lines of code show a selection box that dissapears.	
+		
 	local selectbox = game.ServerStorage.SelectionBox:Clone()
-	selectbox.Parent = game.Selection:Get()[#game.Selection:Get()]
+	selectbox.Parent = game.Selection:Get()[#game.Selection:Get()] -- Gets the user's selection
 	selectbox.Adornee = selectbox.Parent
 	wait(3)
 	selectbox.Transparency = 0.1
