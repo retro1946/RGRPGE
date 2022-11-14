@@ -3,7 +3,7 @@
 
 License: MIT
 
-[Credits](credits.md)<br>
+[Credits](CREDITS.md)<br>
 
 # Download
 
