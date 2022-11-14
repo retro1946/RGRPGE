@@ -1,7 +1,7 @@
 # Retro's Global RPG Engine
 ## This engine's goal is to make RPGs in Roblox easier to develop, no matter the theme.
 
-License: MIT
+License: Apache 2.0
 
 [Credits](CREDITS.md)<br>
 
